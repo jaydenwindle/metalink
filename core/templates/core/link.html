@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{link.title}}</title>
+    <meta name="title" content="{{link.title}}">
+    <meta name="description" content="{{link.description}}">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{link.url}}">
+    <meta property="og:title" content="{{link.title}}">
+    <meta property="og:description" content="{{link.description}}">
+    <meta property="og:image" content="{{root_url}}{{link.image.url}}">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{link.url}}">
+    <meta property="twitter:title" content="{{link.title}}">
+    <meta property="twitter:description" content="{{link.description}}">
+    <meta property="twitter:image" content="{{root_url}}{{link.image.url}}">
+
+    <script>
+        window.location.href = "{{link.url}}"
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
