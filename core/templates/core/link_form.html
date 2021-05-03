@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     {% tailwind_css %}
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 </head>
 
 
@@ -186,11 +187,11 @@
                                                 {{form.url | class:"shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"}}
                                             </div>
 
-                                            <div class="mb-4">
+                                            <div class="mb-4" x-data="{file: null}">
                                                 <label for="image"
                                                     class="block text-sm font-medium text-gray-700 mb-2">Image</label>
                                                 <div class="mt-1 sm:mt-0 sm:col-span-2">
-                                                    <div
+                                                    <div x-show="file === null"
                                                         class="max-w-lg flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
                                                         <div class="space-y-1 text-center">
                                                             <svg class="mx-auto h-12 w-12 text-gray-400"
@@ -206,7 +207,8 @@
                                                                     class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
                                                                     <span>Upload a file</span>
                                                                     <input type="file" name="image" accept="image/*"
-                                                                        required="" id="image" class="sr-only">
+                                                                        required="" id="image" class="sr-only"
+                                                                        x-on:change="file = URL.createObjectURL($event.target.files[0]);">
                                                                 </label>
                                                                 <p class="pl-1">or drag and drop</p>
                                                             </div>
@@ -215,6 +217,8 @@
                                                             </p>
                                                         </div>
                                                     </div>
+                                                    <img id="preview" x-bind:src="file" x-show="file !== null"
+                                                        class="rounded-md" />
                                                 </div>
                                             </div>
 
