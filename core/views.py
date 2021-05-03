@@ -8,7 +8,7 @@ from core.forms import LinkForm
 
 class LinkCreateView(CreateView):
     model = Link
-    fields = ("url", "title", 'description', 'image')
+    form_class = LinkForm
 
     def get_success_url(self) -> str:
         print(self)
